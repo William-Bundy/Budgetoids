@@ -46,7 +46,7 @@ class TransactionTVC:UITableViewController
 			sender.resignFirstResponder()
 		}
 
-		let category = TransactionCategory.all[prioritySelector.selectedSegmentIndex]
+		let category = TxnCategory.all[prioritySelector.selectedSegmentIndex]
 		let txn = TransactionStub(money, category)
 
 		amountField.text = nil

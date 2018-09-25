@@ -11,17 +11,44 @@ import CoreData
 
 typealias MOContext = NSManagedObjectContext
 
-class CoreDataStack
+class DataStack
 {
-	static var shared = CoreDataStack()
+	static var shared = DataStack()
+	static var moc:MOContext { return DataStack.shared.container.viewContext }
 
 	lazy var container:NSPersistentContainer = {
 		var con = NSPersistentContainer(name: "Budgetoids")
-
-		con.loadPersistentStores(completionHandler: <#T##(NSPersistentStoreDescription, Error?) -> Void#>)
+		con.loadPersistentStores { _, error in
+			if let error = error {
+				NSLog("Error loading persistent stores: \(error)")
+				fatalError()
+			}
+		}
+		con.viewContext.automaticallyMergesChangesFromParent = true
 
 		return con
 	}()
 
 	var mainContext:MOContext { return container.viewContext }
+}
+
+extension MOContext {
+
+	@discardableResult
+	func safeSave(withReset:Bool = true) -> Bool
+	{
+		var didSave = true
+		self.performAndWait {
+			do {
+				try self.save()
+			} catch {
+				NSLog("Failed to save moc: \(error)")
+				if withReset {
+					self.reset()
+				}
+				didSave = false
+			}
+		}
+		return didSave
+	}
 }
