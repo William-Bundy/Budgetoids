@@ -111,7 +111,7 @@ extension Transaction
 		self.location = location
 	}
 
-	func applyStub(_ stub:TransactionStub)
+	func applyStub(_ stub:TxnStub)
 	{
 		self.amount = Int32(stub.amount)
 		self.category = stub.category.rawValue
@@ -123,11 +123,11 @@ extension Transaction
 		self.location = stub.location != nil ? controller.locations[stub.location!] : nil
 	}
 
-	func getStub() -> TransactionStub
+	func getStub() -> TxnStub
 	{
 		let uuid:UUID = self.identifier ?? UUID()
 		self.identifier = uuid
-		return TransactionStub(
+		return TxnStub(
 			Int(self.amount),
 			TxnCategory.dict[self.category ?? "regular"] ?? .regular,
 			self.timestamp ?? Date(),
@@ -137,7 +137,7 @@ extension Transaction
 	}
 }
 
-struct TransactionStub: Equatable, Comparable
+struct TxnStub: Equatable, Comparable
 {
 	var amount:Int
 	var category:TxnCategory
@@ -147,12 +147,12 @@ struct TransactionStub: Equatable, Comparable
 	var location:LocationStub?
 	var group:GroupStub?
 
-	static func <(l:TransactionStub, r:TransactionStub) -> Bool
+	static func <(l:TxnStub, r:TxnStub) -> Bool
 	{
 		return l.timestamp < r.timestamp
 	}
 
-	static func ==(l:TransactionStub, r:TransactionStub) -> Bool
+	static func ==(l:TxnStub, r:TxnStub) -> Bool
 	{
 		return l.identifier == r.identifier
 	}
@@ -178,28 +178,29 @@ class TransactionController
 {
 	static var shared = TransactionController()
 
-	var transactions:[TransactionStub] = []
+	var transactions:[TxnStub] = []
 	var groups:[GroupStub:TxnGroup] = [:]
 	var locations:[LocationStub:TxnLocation] = [:]
 
-	func add(_ transaction:TransactionStub)
+	func add(_ transaction:TxnStub)
 	{
 		transactions.append(transaction)
 	}
 
-	func update(_ transaction:TransactionStub, with replacement:TransactionStub)
+	func update(_ transaction:TxnStub, with replacement:TxnStub)
 	{
 		if let index = transactions.index(of:transaction) {
 			transactions[index] = replacement
 		}
 	}
 
-	func remove(_ transaction:TransactionStub)
+	func remove(_ transaction:TxnStub)
 	{
 		if let index = transactions.index(of:transaction) {
 			transactions.remove(at: index)
 		}
 	}
+	
 	func removeAt(_ index:Int)
 	{
 		if index >= 0 && index < transactions.count {

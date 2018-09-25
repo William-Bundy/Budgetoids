@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE22E2872159FE3C004FC7AD /* scene0.scn in Resources */ = {isa = PBXBuildFile; fileRef = BE22E2862159FE3C004FC7AD /* scene0.scn */; };
+		BE33788E215A8FAD00B9E5AB /* SceneAssets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BE33788D215A8FAD00B9E5AB /* SceneAssets.scnassets */; };
 		BE34A516213A63A300AEFD50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE34A515213A63A300AEFD50 /* AppDelegate.swift */; };
 		BE34A51B213A63A300AEFD50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE34A519213A63A300AEFD50 /* Main.storyboard */; };
 		BE34A51D213A63A500AEFD50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE34A51C213A63A500AEFD50 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE22E2862159FE3C004FC7AD /* scene0.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = scene0.scn; sourceTree = "<group>"; };
+		BE33788D215A8FAD00B9E5AB /* SceneAssets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = SceneAssets.scnassets; sourceTree = "<group>"; };
 		BE34A512213A63A300AEFD50 /* Budgetoids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budgetoids.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE34A515213A63A300AEFD50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE34A51A213A63A300AEFD50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -43,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE22E2852159FE07004FC7AD /* scenes */ = {
+			isa = PBXGroup;
+			children = (
+				BE22E2862159FE3C004FC7AD /* scene0.scn */,
+				BE33788D215A8FAD00B9E5AB /* SceneAssets.scnassets */,
+			);
+			path = scenes;
+			sourceTree = "<group>";
+		};
 		BE34A509213A63A300AEFD50 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +75,7 @@
 		BE34A514213A63A300AEFD50 /* Budgetoids */ = {
 			isa = PBXGroup;
 			children = (
+				BE22E2852159FE07004FC7AD /* scenes */,
 				BE84E08721595C0C00F2F938 /* src */,
 				BE34A515213A63A300AEFD50 /* AppDelegate.swift */,
 				BE34A519213A63A300AEFD50 /* Main.storyboard */,
@@ -144,6 +158,8 @@
 			files = (
 				BE34A520213A63A500AEFD50 /* LaunchScreen.storyboard in Resources */,
 				BE34A51D213A63A500AEFD50 /* Assets.xcassets in Resources */,
+				BE22E2872159FE3C004FC7AD /* scene0.scn in Resources */,
+				BE33788E215A8FAD00B9E5AB /* SceneAssets.scnassets in Resources */,
 				BE34A51B213A63A300AEFD50 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,13 +8,19 @@
 
 import Foundation
 import UIKit
-import Metal
+import SceneKit
+
 
 class GameVC:UIViewController
 {
+	@IBOutlet weak var gameView: GameSceneView!
 
 	override func viewDidLoad()
 	{
+		guard let scene = SCNScene(named: "scene0.scn") else { NSLog("Failed to load scene"); return }
+		gameView.scene = scene
+		gameView.rendersContinuously = true
+		gameView.allowsCameraControl = true
 
 	}
 
@@ -22,4 +28,9 @@ class GameVC:UIViewController
 	{
 		super.viewDidAppear(animated)
 	}
+}
+
+class GameSceneView:SCNView
+{
+	
 }

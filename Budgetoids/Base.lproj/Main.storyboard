@@ -121,9 +121,24 @@
                     <view key="view" contentMode="scaleToFill" id="1x7-fQ-5fa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Si7-st-eK4" customClass="GameSceneView" customModule="Budgetoids" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Si7-st-eK4" firstAttribute="leading" secondItem="DCN-Kz-0hK" secondAttribute="leading" id="M4m-ln-Igx"/>
+                            <constraint firstItem="DCN-Kz-0hK" firstAttribute="bottom" secondItem="Si7-st-eK4" secondAttribute="bottom" id="k8Z-A1-JAH"/>
+                            <constraint firstItem="DCN-Kz-0hK" firstAttribute="trailing" secondItem="Si7-st-eK4" secondAttribute="trailing" id="pb8-dn-hIq"/>
+                            <constraint firstItem="Si7-st-eK4" firstAttribute="top" secondItem="DCN-Kz-0hK" secondAttribute="top" id="z1e-VA-T73"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DCN-Kz-0hK"/>
                     </view>
+                    <connections>
+                        <outlet property="gameView" destination="Si7-st-eK4" id="5aO-uS-C5u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mnI-qF-lKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

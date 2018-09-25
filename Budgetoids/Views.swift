@@ -12,7 +12,7 @@ import UIKit
 class TransactionCell:UITableViewCell
 {
 	@IBOutlet weak var amountLabel: UILabel!
-	var transaction:TransactionStub! {
+	var transaction:TxnStub! {
 		didSet {
 			amountLabel.setMoney(transaction.amount)
 		}
@@ -47,7 +47,7 @@ class TransactionTVC:UITableViewController
 		}
 
 		let category = TxnCategory.all[prioritySelector.selectedSegmentIndex]
-		let txn = TransactionStub(money, category)
+		let txn = TxnStub(money, category)
 
 		amountField.text = nil
 
