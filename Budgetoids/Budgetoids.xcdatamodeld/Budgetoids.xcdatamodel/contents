@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BudgetMonth" representedClassName="BudgetMonth" syncable="YES" codeGenerationType="class">
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transaction" inverseName="month" inverseEntity="Transaction" syncable="YES"/>
+    </entity>
+    <entity name="Transaction" representedClassName="Transaction" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TxnGroup" inverseName="transactions" inverseEntity="TxnGroup" syncable="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TxnLocation" inverseName="transactions" inverseEntity="TxnLocation" syncable="YES"/>
+        <relationship name="month" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BudgetMonth" inverseName="transactions" inverseEntity="BudgetMonth" syncable="YES"/>
+    </entity>
+    <entity name="TxnGroup" representedClassName="TxnGroup" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shortName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transaction" inverseName="group" inverseEntity="Transaction" syncable="YES"/>
+    </entity>
+    <entity name="TxnLocation" representedClassName="TxnLocation" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transaction" inverseName="location" inverseEntity="Transaction" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Transaction" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="TxnLocation" positionX="290.27734375" positionY="-38.88671875" width="128" height="75"/>
+        <element name="BudgetMonth" positionX="205.12890625" positionY="71.8203125" width="128" height="90"/>
+        <element name="TxnGroup" positionX="229.40234375" positionY="-181.64453125" width="128" height="90"/>
+    </elements>
+</model>
