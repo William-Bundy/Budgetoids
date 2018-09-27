@@ -83,6 +83,7 @@ class TransactionTVC:UITableViewController
 		if editingStyle == .delete {
 			controller.removeAt(indexPath.row)
 			tableView.deleteRows(at: [indexPath], with: .left)
+			setTitleToRemainingMoney()
 		}
 	}
 }

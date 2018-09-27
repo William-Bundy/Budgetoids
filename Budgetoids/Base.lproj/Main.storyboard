@@ -96,7 +96,7 @@
                     <navigationItem key="navigationItem" title="$100.00 left" id="0V8-VG-iSh">
                         <barButtonItem key="leftBarButtonItem" title="Game" id="6iN-Vi-Uxt">
                             <connections>
-                                <segue destination="0lC-f4-Nka" kind="show" id="MYS-jp-RT0"/>
+                                <segue destination="0lC-f4-Nka" kind="show" id="Wsk-v1-J0i"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Advanced" id="6gi-RR-4oi">
@@ -124,7 +124,20 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Si7-st-eK4" customClass="GameSceneView" customModule="Budgetoids" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="di8-zg-iwS">
+                                        <rect key="frame" x="8" y="8" width="359" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="di8-zg-iwS" secondAttribute="trailing" constant="8" id="TCD-Hb-lWS"/>
+                                    <constraint firstItem="di8-zg-iwS" firstAttribute="top" secondItem="Si7-st-eK4" secondAttribute="top" constant="8" id="ahM-fT-43w"/>
+                                    <constraint firstItem="di8-zg-iwS" firstAttribute="leading" secondItem="Si7-st-eK4" secondAttribute="leading" constant="8" id="fak-CG-IKA"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -137,6 +150,7 @@
                         <viewLayoutGuide key="safeArea" id="DCN-Kz-0hK"/>
                     </view>
                     <connections>
+                        <outlet property="debugLabel" destination="di8-zg-iwS" id="e9w-PD-85M"/>
                         <outlet property="gameView" destination="Si7-st-eK4" id="5aO-uS-C5u"/>
                     </connections>
                 </viewController>
@@ -163,7 +177,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Oy8-PA-gqF">
             <objects>
-                <navigationController id="ZnA-t7-0m1" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="BaseNavCont" id="ZnA-t7-0m1" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="PUn-N8-F9M">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
